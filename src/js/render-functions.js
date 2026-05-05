@@ -32,12 +32,13 @@ export function createGallery(images) {
     )
     .join('');
 
-  gallery.innerHTML = markup;
+  gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
 export function clearGallery() {
   document.querySelector('.gallery').innerHTML = '';
 }
+
 export function showLoader() {
   const loader = document.querySelector('.loader');
   if (loader) {
@@ -49,5 +50,18 @@ export function hideLoader() {
   const loader = document.querySelector('.loader');
   if (loader) {
     loader.classList.add('is-hidden');
+  }
+}
+export function showLoadMoreBtn() {
+  const btn = document.querySelector('.load-more-btn');
+  if (btn) {
+    btn.classList.remove('is-hidden');
+  }
+}
+
+export function hideLoadMoreBtn() {
+  const btn = document.querySelector('.load-more-btn');
+  if (btn) {
+    btn.classList.add('is-hidden');
   }
 }
